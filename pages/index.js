@@ -28,7 +28,7 @@ const Home = () => {
 
 
       test stuff here: 
-      {connectedAddress.toString()}
+      {/*connectedAddress.toString()*/}
       
 
       </>
