@@ -1,0 +1,32 @@
+{
+  "name": "flying-carpets-www",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@rainbow-me/rainbowkit": "^0.7.1",
+    "@react-three/drei": "^9.36.0",
+    "@react-three/fiber": "^8.8.10",
+    "axios": "^1.1.3",
+    "ethers": "^5.7.1",
+    "next": "12.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "theme-ui": "^0.15.3",
+    "three": "^0.145.0",
+    "wagmi": "^0.7.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@tanstack/query-core": "^4.12.0",
+    "eslint": "8.25.0",
+    "eslint-config-next": "12.3.1",
+    "typescript": "^4.8.4"
+  }
+}
