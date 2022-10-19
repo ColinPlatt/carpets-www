@@ -2,19 +2,26 @@ import Link from "next/link";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { IconButton, Button, Box , Flex } from 'theme-ui';
 import styles from "../styles/Home.module.css";
+import RugBalance from "./RugBalance";
 
 
 export default function Header() {
   return (
     <div className={styles.header}>
-      <Flex >
-        <Box px={2} paddingTop={3} paddingBottom={3} sx={{ flex: '1 1 auto' }}>
+      <Flex sx={{
+        alignItems: 'center',
+      }}>
+        <Box px={2} sx={{ flex: '1 1 auto' }}>
           An experimental crypto art project. 
         </Box>
-        <IconButton paddingTop={4}>
+       <RugBalance/>
+
+        <IconButton sx={{
+          px: 2
+        }}>
           <svg 
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 30 40"
+              viewBox="0 0 30 30"
               width="30"
               height="30"
               fill="currentcolor">
@@ -27,13 +34,7 @@ export default function Header() {
               c1.285,0.027,1.879,0.644,1.879,1.543c0,0.85-0.67,1.697-1.494,2.701c-1.156,1.364-1.594,2.701-1.516,4.012l0.025,0.669h3.42
               v-0.463c-0.025-1.158,0.387-2.162,1.311-3.215c0.979-1.08,2.211-2.366,2.211-4.321C19.705,7.968,18.139,6.092,14.742,6.092z"/>
           </svg>
-        </IconButton>
-        <Button >
-          Box with WARP Balance
-          <Box>
-            Value
-          </Box>
-        </Button>
+        </IconButton>  
         <Box px={2} py={2} >
           <ConnectButton 
                     label='Get Rugged'

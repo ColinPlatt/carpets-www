@@ -5,7 +5,7 @@ import Header from "../components/Header";
 
 import '../hooks/index';
 import { useRugsBalance } from '../hooks/index';
-
+import RugBalance from '../components/RugBalance';
 
 const Home = () => {
 
