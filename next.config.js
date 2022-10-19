@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   env: {
     MORALIS_API_KEY: 'xdFfYBgoxf8MvpQwAkXZhLegGHZJBhZWCr2NnYUzd6AeAsepyVmeVmpDHwg0bKG6',
