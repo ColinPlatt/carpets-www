@@ -36,10 +36,15 @@ const Home = () => {
         {/* <Grid>
           <Text>test stuff here: { }</Text>
           <Text>balance: {rugsBalance} { }</Text>
-          {rugImage && <img src={rugImage} />}
         </Grid> */}
 
-            <FlyingCarpet />
+{rugImage &&
+
+<FlyingCarpet imageUrl={rugImage}/>
+}
+
+
+
       </Container>
   )
 };

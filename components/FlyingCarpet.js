@@ -15,13 +15,13 @@ const CloudsComponent = () => (
   </>
 );
 
-export default function FlyingCarpet() {
+export default function FlyingCarpet({imageUrl}) {
   return (
-    <Canvas 
+    <Canvas
     camera={{fov: 50, near: 0.1, far: 1000, position: [7.5, 5, 1.5]
     }}>
     <Suspense fallback={null}>
-        <Model />
+        <Model imageUrl={imageUrl}/>
         <ambientLight intensity={0.5} />
         <pointLight intensity={1} position={[0, 0, -1000]} />
         <OrbitControls />
