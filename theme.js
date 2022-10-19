@@ -125,8 +125,9 @@ const theme = {
   // Container.
   layout: {
     container: {
-      px: [2, 3, 4],
-      maxWidth: '64rem',
+      //px: [2, 3, 4],
+      width: '100vw',
+      height: '90vh',
     },
     narrow: {
       variant: 'layout.container',

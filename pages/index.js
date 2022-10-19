@@ -1,7 +1,8 @@
 
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import Header from "../components/Header";
+import Header from  "../components/Header";
+import FlyingCarpet from '../components/FlyingCarpet';
 
 import { useAccount } from 'wagmi';
 
@@ -10,6 +11,7 @@ import {
   useRugsImage 
 }  from '../hooks/index';
 
+import theme from '../theme';
 import { Text, Container, Grid, Button } from 'theme-ui';
 
 const Home = () => {
@@ -33,9 +35,11 @@ const Home = () => {
       {/* Add Navbar to homepage */}
       <Header />
 
-      
+      <Container>
+        <FlyingCarpet />
+      </Container>
 
-      <Grid>      
+      {/*<Grid>      
         <Text>test stuff here: {}</Text>
         <Text>balance: {rugsBalance} {}</Text>
         <Button onClick={(e) => {
@@ -43,8 +47,7 @@ const Home = () => {
         }}>
         get image 
         </Button>
-      </Grid>
-
+      </Grid>*/}
       
 
       </>

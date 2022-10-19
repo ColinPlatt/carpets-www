@@ -77,26 +77,6 @@ export function useRugsImage(connectedAccount) {
     .catch(function (error) {
         console.error(error);
     });
-
-    
-
-    /*
-
-    const options = {method: 'GET', headers: {accept: 'application/json'}};
-
-fetch('https://api.looksrare.org/api/v1/tokens?collection=0xf70d49ec015D67738482a09c849e02e89b6FE661&tokenId=10', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
-
-    */
-
-
-
-    
-    
-
-    
 }
 
 export default useRugsImage;
