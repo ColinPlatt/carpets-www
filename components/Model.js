@@ -8,14 +8,13 @@ export function Model(props) {
   const { nodes, materials, animations, scene } = useGLTF(
     "/FlyingCarpet_test2.glb"
   );
-  
 
   const { actions, mixer } = useAnimations(animations, group);
 
   useEffect(() => {
     actions.Action?.play();
   }, [mixer]);
-  
+
   return (
     <group ref={group} position={[0, 0, 0]} dispose={null}>
       <group name="Scene">

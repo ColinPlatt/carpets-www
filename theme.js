@@ -60,6 +60,7 @@ const theme = {
 
   // 3 - Customize theme scales.
   breakpoints: ['30em', '60em'],
+  fontSizes: [14, 16, 20, 24, 32, 48, 64, 96],
   borders: [0, '1px solid', '2px solid', '3px solid'],
   radii: {
     default: 0,
