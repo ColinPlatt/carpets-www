@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { IconButton, Button, Box, Flex, Text } from 'theme-ui';
 import styles from "../styles/Home.module.css";
-import RugBalance from "./RugBalance";
+import CarpetsBalance from "./CarpetsBalance";
 import ModalDialog from "./ModalDialog";
 import {
   OverlayContainer,
@@ -37,7 +37,7 @@ export default function Header() {
 
           <img rel="icon" height="125%" src="/magiclamp.svg" />
         </IconButton>
-        <RugBalance />
+        <CarpetsBalance />
         <Box px={2} py={2} >
           <ConnectButton
             label='Get Rugged'

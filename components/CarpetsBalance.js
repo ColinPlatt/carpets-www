@@ -8,7 +8,7 @@ import {
 import { RUGS_NFT_MAINNET } from '../constants'
 import { Button } from 'theme-ui';
 
-const RugBalance = () => {
+const CarpetsBalance = () => {
     const { address: userAddress } = useAccount();
     const { data, isError, isLoading, error } = useContractRead({
         address: RUGS_NFT_MAINNET,
@@ -18,7 +18,12 @@ const RugBalance = () => {
     },
     );
 
-    return <Button>{`${data || 0}`} RUGS</Button>
+    return <Button sx={{
+            '&:hover': {transform: 'scale(1.025)'},
+            '&:active' : {transform: 'scale(0.95)'}
+            }}>{`${data || 0}`} $carpets</Button>
 }
 
-export default RugBalance;
+export default CarpetsBalance;
+
+//@TODO change this to reflect the balance of the latest $CARPET contract

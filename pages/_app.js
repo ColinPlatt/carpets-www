@@ -16,9 +16,6 @@ import {
   OverlayProvider,
 } from 'react-aria';
 
-
-
-
 import { ThemeProvider } from 'theme-ui';
 
 function CarpetApp({ Component, pageProps }) {

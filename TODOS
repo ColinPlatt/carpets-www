@@ -3,10 +3,12 @@ Connection
 [] Add Auth/Sign state at connection
 
 Style
-[x] Style RUGS button
+[x] Style carpet balance button
 [] Add ThreeJS element with image from connected user rugs/default
-[] Restyle About button
+[x] Restyle About button
+[] Restyle Modal for About
 [] Add about page
+[] Add footer with Rug Research link
 
 
 Functionality
@@ -14,3 +16,5 @@ Functionality
 [] Get RUGS image metadata (if available)
 [] Hook get contract state
 [] Find latest version of CARPET
+[] Add latest balance to carpet balance button
+[] Link carpet balance button to Etherscan
