@@ -1,12 +1,3 @@
-/* :root {
-  --color-fire-opal: #ec544c;
-  --color-ultra-red: #f37588;
-  --color-brown-chocolate: #5c1c34;
-  --color-liberty: #4f53a2;
-  --color-pearly-purple: #bf6d9d;
-  --color-jacarta: #3e2f63;
-} */
-
 @font-face {
   font-family: 'aladdin';
   src: url('../assets/aladdin.ttf');
@@ -21,29 +12,3 @@ html, body {
 * {
   box-sizing: border-box;
 }
-
-
-/* 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: var(--color-jacarta);
-  }
-} */
