@@ -9,7 +9,7 @@ import { RUGS_NFT_MAINNET } from '../constants'
 
 export function useRugsImage(connectedAccount) {
 
-    const options = {
+    const optionsMoralis = {
         method: 'GET',
         url: `https://deep-index.moralis.io/api/v2/${connectedAccount}/nft`,
         params: {
@@ -23,17 +23,14 @@ export function useRugsImage(connectedAccount) {
         }
     };
 
-    // get the token IDs held by the user
+    // get the token IDs held by the user and
 
     let rugsResults;
     let selected_id;
 
-    
     axios
-    .request(options)
+    .request(optionsMoralis)
     .then(function (response) {
-        console.log(response.data.result[0].token_uri);
-
         rugsResults = response.data.result;
 
         if(rugsResults.length != 0) {
@@ -43,17 +40,58 @@ export function useRugsImage(connectedAccount) {
             } else {
                 selected_id = response.data.result[0].token_id;
             }
+
+            console.log(selected_id);
+
+            const optionsLooksRare = {
+                method: 'GET',
+                url: `https://api.looksrare.org/api/v1/tokens?collection=${RUGS_NFT_MAINNET}&tokenId=${selected_id}`,
+                headers: {
+                    accept: 'application/json',
+                }
+            };
+        
+            let lookResults;
+            let imageURI;
+        
+            axios
+            .request(optionsLooksRare)
+            .then(function (response) {
+                lookResults = response.data.data
+                imageURI = response.data.data.imageURI;
+                
+                console.log(lookResults);
+                console.log(imageURI);
+                
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+        
+            return imageURI;
         } else {
             return '0'; //there is no token ID 0
         }
 
-        console.log(selected_id);
-        return selected_id;
-        
     })
     .catch(function (error) {
         console.error(error);
     });
+
+    
+
+    /*
+
+    const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+fetch('https://api.looksrare.org/api/v1/tokens?collection=0xf70d49ec015D67738482a09c849e02e89b6FE661&tokenId=10', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+
+    */
+
+
 
     
     
