@@ -40,6 +40,7 @@ export const useRugsImage = async (connectedAccount) => {
             selected_id = response.data.result[0].token_id;
         }
 
+
         console.log(selected_id);
 
         const optionsLooksRare = {
@@ -65,6 +66,7 @@ export const useRugsImage = async (connectedAccount) => {
     } else {
         return '0'; //there is no token ID 0
     }
+
 }
 
 export default useRugsImage;

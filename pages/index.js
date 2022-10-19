@@ -1,3 +1,4 @@
+
 import { useAccount } from 'wagmi';
 
 import {
@@ -5,6 +6,7 @@ import {
   useRugsImage
 } from '../hooks/index';
 
+import theme from '../theme';
 import { Text, Container, Grid, Button } from 'theme-ui';
 import { useEffect, useState } from 'react';
 
@@ -27,6 +29,7 @@ const Home = () => {
 
 
   return (
+
       <Container sx={{
         pt: 3
       }}>
@@ -35,6 +38,8 @@ const Home = () => {
           <Text>balance: {rugsBalance} { }</Text>
           {rugImage && <img src={rugImage} />}
         </Grid>
+           
+            <FlyingCarpet />
       </Container>
   )
 };
