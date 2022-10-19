@@ -9,6 +9,7 @@ import {
 import theme from '../theme';
 import { Text, Container, Grid, Button } from 'theme-ui';
 import { useEffect, useState } from 'react';
+import FlyingCarpet from '../components/FlyingCarpet';
 
 const Home = () => {
   const [rugImage, setRugImg] = useState(null);
@@ -38,7 +39,7 @@ const Home = () => {
           <Text>balance: {rugsBalance} { }</Text>
           {rugImage && <img src={rugImage} />}
         </Grid>
-           
+
             <FlyingCarpet />
       </Container>
   )
