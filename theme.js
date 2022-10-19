@@ -44,7 +44,7 @@ const theme = {
     // Theme UI colors.
     text: fireOpal,
     background: jacarta,
-    primary: fireOpal,
+    primary: ultraRed,
     secondary: liberty,
     // Style guide colors.
     fireOpal,
@@ -92,7 +92,7 @@ const theme = {
       fontWeight: 'bold',
       borderRadius: 'default',
       fontFamily: 'aladdin',
-      borderRadius: 10
+      borderRadius: 12
     },
     primary: {
       variant: 'buttons.default',

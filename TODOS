@@ -1,0 +1,10 @@
+Connection
+[] Prompt change to Ethereum/Goerli/LocalNetwork | Return Wrong Network
+[] Add Auth/Sign state at connection
+
+[] Get eligible RUGS to claim
+[] Get RUGS image metadata (if available)
+[] Style RUGS button
+[] Add ThreeJS element with image from connected user rugs/default
+[] Hook get contract state
+[] Find latest version of CARPET

@@ -1,6 +1,5 @@
 import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
-import { AppProps } from 'next/app';
 import merge from 'lodash.merge';
 import {
   RainbowKitProvider,
@@ -29,9 +28,9 @@ function CarpetApp({ Component, pageProps }) {
   const { chains, provider, webSocketProvider } = configureChains(
     [
       chain.mainnet,
-      chain.goerli,
+      chain.goerli, //move this before prod
       ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true'
-        ? [chain.goerli, chain.sepolia]
+        ? [chain.goerli, chain.localhost]
         : []),
     ],
     [
@@ -63,9 +62,11 @@ function CarpetApp({ Component, pageProps }) {
       accentColorForeground: theme.colors.jacarta,
       actionButtonSecondaryBackground: theme.colors.ultraRed,
       modalBackground: theme.colors.ultraRed,
+      modalText: theme.colors.jacarta,
       menuItemBackground: theme.colors.ultraRed,
       closeButtonBackground: theme.colors.ultraRed,
       connectButtonBackground: theme.colors.ultraRed,
+      connectButtonText: theme.colors.jacarta,
       downloadBottomCardBackground: theme.colors.ultraRed,
       downloadTopCardBackground: theme.colors.ultraRed,
     },
@@ -82,6 +83,7 @@ function CarpetApp({ Component, pageProps }) {
           <RainbowKitProvider
             chains={chains}
             theme={customTheme}
+            modalSize="compact"
           >
             <Component {...pageProps} />
           </RainbowKitProvider>

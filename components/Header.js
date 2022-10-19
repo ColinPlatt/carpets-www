@@ -26,8 +26,6 @@ export default function Header() {
         <Box px={2} sx={{ flex: '1 1 auto' }}>
           An experimental crypto art project.
         </Box>
-        <RugBalance />
-
         <IconButton
           sx={{
             px: 2
@@ -50,6 +48,7 @@ export default function Header() {
               v-0.463c-0.025-1.158,0.387-2.162,1.311-3.215c0.979-1.08,2.211-2.366,2.211-4.321C19.705,7.968,18.139,6.092,14.742,6.092z"/>
           </svg>
         </IconButton>
+        <RugBalance />
         <Box px={2} py={2} >
           <ConnectButton
             label='Get Rugged'

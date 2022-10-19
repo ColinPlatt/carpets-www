@@ -6,7 +6,7 @@ import {
 } from "wagmi";
 
 import { RUGS_NFT_MAINNET } from '../constants'
-import { Box } from 'theme-ui';
+import { Button } from 'theme-ui';
 
 const RugBalance = () => {
     const { address: userAddress } = useAccount();
@@ -18,7 +18,7 @@ const RugBalance = () => {
     },
     );
 
-    return <Box>{`${data || 0}`} WARP</Box>
+    return <Button>{`${data || 0}`} RUGS</Button>
 }
 
 export default RugBalance;
