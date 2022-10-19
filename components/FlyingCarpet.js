@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import * as THREE from 'three'
-import { OrbitControls, Sky, Cloud } from "@react-three/drei";
+import { OrbitControls, Sky, Cloud, Html } from "@react-three/drei";
 
 import { Model } from './Model'
 
@@ -20,7 +20,7 @@ export default function FlyingCarpet({imageUrl}) {
     <Canvas
     camera={{fov: 50, near: 0.1, far: 1000, position: [7.5, 5, 1.5]
     }}>
-    <Suspense fallback={null}>
+    <Suspense fallback={<Html>Loading...</Html>}>
         <Model imageUrl={imageUrl}/>
         <ambientLight intensity={0.5} />
         <pointLight intensity={1} position={[0, 0, -1000]} />
