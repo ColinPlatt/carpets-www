@@ -4,7 +4,8 @@ Connection
 
 Style
 [x] Style carpet balance button
-[] Add ThreeJS element with image from connected user rugs/default
+[x] Add ThreeJS element with image from connected user rugs
+[] Handle default no RUGS
 [x] Restyle About button
 [] Restyle Modal for About
 [] Add about page
@@ -13,7 +14,7 @@ Style
 
 Functionality
 [] Get eligible RUGS to claim
-[] Get RUGS image metadata (if available)
+[x] Get RUGS image metadata (if available)
 [] Hook get contract state
 [] Find latest version of CARPET
 [] Add latest balance to carpet balance button

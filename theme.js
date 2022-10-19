@@ -89,7 +89,7 @@ const theme = {
   // Button.
   buttons: {
     default: {
-      fontSize: 2,
+      fontSize: '100%',
       fontWeight: 'bold',
       borderRadius: 'default',
       fontFamily: 'aladdin',
