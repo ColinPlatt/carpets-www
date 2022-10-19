@@ -16,7 +16,11 @@ import {
   OverlayProvider,
 } from 'react-aria';
 
-import { ThemeProvider } from 'theme-ui';
+import { ThemeProvider, Box, Flex, Text } from 'theme-ui';
+
+import Header from "../components/Header";
+import Head from 'next/head';
+
 
 function CarpetApp({ Component, pageProps }) {
 
@@ -82,7 +86,47 @@ function CarpetApp({ Component, pageProps }) {
             theme={customTheme}
             modalSize="compact"
           >
-            <Component {...pageProps} />
+
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh',
+              }}
+            >
+              <Head>
+                <title>Flying Rugs 🧞</title>
+                <meta
+                  name="Magic Flying Rugs Tokens"
+                  content="An experimental crypto art project, in conjunction with Rug Research"
+                />
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
+              </Head>
+              <Header />
+
+              <Box
+                sx={{
+                  width: '100%',
+                  flex: '1 1 auto',
+                  variant: 'layout.main',
+                }}
+              >
+
+                <Component {...pageProps} />
+              </Box>
+
+              <Box
+              >
+                <Flex sx={{
+                  justifyContent: 'center',
+                  py: 3
+                }}>
+                  <Text>
+                    A Rug Research collaboration
+                  </Text>
+                </Flex>
+              </Box>
+            </Box>
           </RainbowKitProvider>
         </WagmiConfig>
       </OverlayProvider>

@@ -1,53 +1,41 @@
-
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import Header from "../components/Header";
-
 import { useAccount } from 'wagmi';
 
-import { 
-  useRugsBalance, 
-  useRugsImage 
-}  from '../hooks/index';
+import {
+  useRugsBalance,
+  useRugsImage
+} from '../hooks/index';
 
 import { Text, Container, Grid, Button } from 'theme-ui';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
-  
+  const [rugImage, setRugImg] = useState(null);
   const rugsBalance = useRugsBalance();
-  const {address} = useAccount();
-  //const rugsImage = useRugsImage();
+  const { address } = useAccount();
 
-  let rugImg;
-  
+  useEffect(() => {
+    const getWalletRug = async () => {
+      let rugImg = await useRugsImage(address)
+      setRugImg(rugImg);
+    }
+
+    if (!rugImage && rugsBalance > 0) {
+      getWalletRug();
+    }
+  }, [rugsBalance, rugImage]);
+
+
+
   return (
-    <>
-      <Head>
-          <title>Flying Rugs 🧞</title>
-          <meta
-            name="Magic Flying Rugs Tokens"
-            content="An experimental crypto art project, in conjunction with Rug Research"
-          />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
-        </Head>
-      {/* Add Navbar to homepage */}
-      <Header />
-
-      
-
-      <Grid>      
-        <Text>test stuff here: {}</Text>
-        <Text>balance: {rugsBalance} {}</Text>
-        <Button onClick={(e) => {
-          rugImg = useRugsImage(address)
-        }}>
-        get image 
-        </Button>
-      </Grid>
-
-      
-
-      </>
+      <Container sx={{
+        pt: 3
+      }}>
+        <Grid>
+          <Text>test stuff here: { }</Text>
+          <Text>balance: {rugsBalance} { }</Text>
+          {rugImage && <img src={rugImage} />}
+        </Grid>
+      </Container>
   )
 };
 

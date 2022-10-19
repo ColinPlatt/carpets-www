@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { IconButton, Button, Box, Flex, Text } from 'theme-ui';
-import styles from "../styles/Home.module.css";
+import { IconButton, Button, Box, Flex, Text, Heading, Container } from 'theme-ui';
 import CarpetsBalance from "./CarpetsBalance";
 import ModalDialog from "./ModalDialog";
 import {
@@ -15,23 +14,24 @@ export default function Header() {
   let infoModalState = useOverlayTriggerState({});
 
   return (
-    <Box  sx={{
+    <Box sx={{
       bg: 'liberty',
-      color: 'ultraRed'
-    }}
-    
-    className={styles.header}>
+      color: 'ultraRed',
+      px: 4
+    }}>
       <Flex sx={{
         alignItems: 'center',
       }}>
         <Box px={2} sx={{ flex: '1 1 auto' }}>
-          An experimental crypto art project.
+          <Heading>
+            An experimental crypto art project.
+          </Heading>
         </Box>
         <IconButton
           sx={{
             px: 4,
-            '&:hover': {transform: 'scale(1.1)'},
-            '&:active' : {transform: 'scale(0.9)'}
+            '&:hover': { transform: 'scale(1.1)' },
+            '&:active': { transform: 'scale(0.9)' }
           }}
           onClick={infoModalState.open}>
 
@@ -46,7 +46,6 @@ export default function Header() {
           />
         </Box>
       </Flex>
-
 
 
 
