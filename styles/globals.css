@@ -1,11 +1,11 @@
-:root {
+/* :root {
   --color-fire-opal: #ec544c;
   --color-ultra-red: #f37588;
   --color-brown-chocolate: #5c1c34;
   --color-liberty: #4f53a2;
   --color-pearly-purple: #bf6d9d;
   --color-jacarta: #3e2f63;
-}
+} */
 
 @font-face {
   font-family: 'aladdin';
@@ -14,6 +14,16 @@
   font-style: normal;
   }
 
+html, body {
+  font-family: 'aladdin', serif;
+}  
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* 
 html,
 body {
   padding: 0;
@@ -27,9 +37,6 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -39,4 +46,4 @@ a {
     color: white;
     background: var(--color-jacarta);
   }
-}
+} */

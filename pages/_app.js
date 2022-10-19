@@ -12,66 +12,82 @@ import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
-console.log(`trying env ${process.env.MORALIS_API_KEY}`);
+import theme from '../theme';
+import {
+  OverlayProvider,
+} from 'react-aria';
 
-const { chains, provider, webSocketProvider } = configureChains(
-  [
-    chain.mainnet,
-    chain.goerli,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true'
-      ? [chain.goerli, chain.sepolia]
-      : []),
-  ],
-  [
-    alchemyProvider({
-      // This is Alchemy's default API key.
-      // You can get your own at https://dashboard.alchemyapi.io
-      // move this to env
-      apiKey: process.env.ALCHEMY_API_KEY,
-    }),
-    publicProvider(),
-  ]
-);
 
-const { connectors } = getDefaultWallets({
-  appName: 'Carpet App',
-  chains,
-});
 
-const customTheme = merge(lightTheme(), {
-  colors: {
-    accentColor: "var(--color-ultra-red)",
-    accentColorForeground: "var(--color-jacarta)",
-    actionButtonSecondaryBackground: "var(--color-ultra-red)",
-    modalBackground: "var(--color-ultra-red)",
-    menuItemBackground: "var(--color-ultra-red)",
-    closeButtonBackground: "var(--color-ultra-red)",
-    connectButtonBackground: "var(--color-ultra-red)",
-    downloadBottomCardBackground: "var(--color-ultra-red)",
-    downloadTopCardBackground: "var(--color-ultra-red)",
-  },
-  fonts: {
-    body: 'aladdin',
-  },
-});
 
-const wagmiClient = createClient({
-  autoConnect: true,
-  connectors,
-  provider,
-  webSocketProvider,
-});
+import { ThemeProvider } from 'theme-ui';
 
 function CarpetApp({ Component, pageProps }) {
+
+  console.log(`trying env ${process.env.MORALIS_API_KEY}`);
+
+  const { chains, provider, webSocketProvider } = configureChains(
+    [
+      chain.mainnet,
+      chain.goerli,
+      ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true'
+        ? [chain.goerli, chain.sepolia]
+        : []),
+    ],
+    [
+      alchemyProvider({
+        // This is Alchemy's default API key.
+        // You can get your own at https://dashboard.alchemyapi.io
+        // move this to env
+        apiKey: process.env.ALCHEMY_API_KEY,
+      }),
+      publicProvider(),
+    ]
+  );
+
+  const { connectors } = getDefaultWallets({
+    appName: 'Carpet App',
+    chains,
+  });
+
+  const wagmiClient = createClient({
+    autoConnect: true,
+    connectors,
+    provider,
+    webSocketProvider,
+  });
+
+  const customTheme = merge(lightTheme(), {
+    colors: {
+      accentColor: theme.colors.ultraRed,
+      accentColorForeground: theme.colors.jacarta,
+      actionButtonSecondaryBackground: theme.colors.ultraRed,
+      modalBackground: theme.colors.ultraRed,
+      menuItemBackground: theme.colors.ultraRed,
+      closeButtonBackground: theme.colors.ultraRed,
+      connectButtonBackground: theme.colors.ultraRed,
+      downloadBottomCardBackground: theme.colors.ultraRed,
+      downloadTopCardBackground: theme.colors.ultraRed,
+    },
+    fonts: {
+      body: 'aladdin',
+    },
+  });
+
+
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider 
-        chains={chains}
-        theme={customTheme} 
-        >
-        <Component {...pageProps} />
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <ThemeProvider theme={theme}>
+      <OverlayProvider>
+        <WagmiConfig client={wagmiClient}>
+          <RainbowKitProvider
+            chains={chains}
+            theme={customTheme}
+          >
+            <Component {...pageProps} />
+          </RainbowKitProvider>
+        </WagmiConfig>
+      </OverlayProvider>
+    </ThemeProvider>
   );
 }
 

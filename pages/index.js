@@ -1,18 +1,8 @@
-import { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Header from "../components/Header";
 
-import '../hooks/index';
-import { useRugsBalance } from '../hooks/index';
-import RugBalance from '../components/RugBalance';
-
 const Home = () => {
-
-  const connectedAddress = useRugsBalance();
-
-  console.log(connectedAddress)
-
   return (
     <>
       <Head>
@@ -28,9 +18,7 @@ const Home = () => {
 
 
       test stuff here: 
-      {/*connectedAddress.toString()*/}
-      
-
+      {/*connectedAdfdress.toString()*/}
       </>
   )
 };

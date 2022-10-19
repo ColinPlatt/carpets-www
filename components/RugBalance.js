@@ -1,18 +1,16 @@
 
-import { 
-    useAccount, 
-    useContractRead, 
+import {
+    useAccount,
+    useContractRead,
     erc721ABI,
 } from "wagmi";
 
-import {RUGS_NFT_MAINNET} from '../constants'
-import rugsABI from '../abi/rugs.abi.json'
-import { IconButton, Button, Box , Flex } from 'theme-ui';
-
+import { RUGS_NFT_MAINNET } from '../constants'
+import { Box } from 'theme-ui';
 
 const RugBalance = () => {
-    const {address: userAddress} = useAccount();
-    const {data, isError, isLoading, error} = useContractRead({
+    const { address: userAddress } = useAccount();
+    const { data, isError, isLoading, error } = useContractRead({
         address: RUGS_NFT_MAINNET,
         abi: erc721ABI,
         functionName: 'balanceOf',
@@ -20,7 +18,7 @@ const RugBalance = () => {
     },
     );
 
-    return <Box>{`${data}`} WARP</Box>
+    return <Box>{`${data || 0}`} WARP</Box>
 }
 
 export default RugBalance;
