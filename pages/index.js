@@ -17,13 +17,13 @@ const Home = () => {
   const { address } = useAccount();
 
   useEffect(() => {
-    const getWalletRug = async () => {
+    const GetWalletRug = async () => {
       let rugImg = await useRugsImage(address)
       setRugImg(rugImg);
     }
 
     if (!rugImage && rugsBalance > 0) {
-      getWalletRug();
+      GetWalletRug();
     }
   }, [rugsBalance, rugImage]);
 

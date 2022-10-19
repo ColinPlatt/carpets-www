@@ -35,7 +35,7 @@ export default function Header() {
           }}
           onClick={infoModalState.open}>
 
-          <img rel="icon" height="125%" src="/magiclamp.svg" />
+          <img rel="icon" height="125%" src="/magiclamp.svg" />  {/*@todo change to Image component?*/}
         </IconButton>
         <CarpetsBalance />
         <Box px={2} py={2} >
