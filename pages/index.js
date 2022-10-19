@@ -32,13 +32,12 @@ const Home = () => {
   return (
 
       <Container sx={{
-        pt: 3
       }}>
-        <Grid>
+        {/* <Grid>
           <Text>test stuff here: { }</Text>
           <Text>balance: {rugsBalance} { }</Text>
           {rugImage && <img src={rugImage} />}
-        </Grid>
+        </Grid> */}
 
             <FlyingCarpet />
       </Container>
