@@ -32,9 +32,7 @@ export function Model({imageUrl, ...props}) {
     <group ref={group} position={[0, 0, 0]} dispose={null}>
       <group name="Scene">
         <mesh
-            onClick={(e) => console.log('click')}
             onContextMenu={(e) => console.log('context menu')}
-            onDoubleClick={(e) => console.log('double click')}
         >
             <group name="Armature">
             <primitive object={nodes.Bone} />
