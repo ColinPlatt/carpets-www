@@ -1,7 +1,8 @@
 import { Suspense, useRef } from 'react'
 import { Canvas, useFrame, extend } from '@react-three/fiber'
 import * as THREE from 'three'
-import { OrbitControls, FlyControls, Sky, Cloud, Html } from "@react-three/drei";
+import { OrbitControls, FlyControls, Sky, Html } from "@react-three/drei";
+import { Cloud } from "./Cloud"
 
 //import { gsap } from 'gsap'
 
@@ -43,13 +44,14 @@ const cloudsGroup = createClouds().map((params, i) =>
 );
 
 const MovingClouds = () => {
-    const clouds = cloudsGroup;
+    const clouds = <Cloud position={[10,10,50]} speed={0.1} segments={10} opacity={0.5} />;
+
+    console.log(clouds)
 
     useFrame(() => {
-        for(let i = 0; i<250; i++){
-            
-            clouds[i].props.position[2] -= 10;
-        }
+        
+        clouds.position[2] -= 0.1;
+
     });
     return clouds;
 }
@@ -74,7 +76,7 @@ export default function FlyingCarpet({imageUrl}) {
             {imageUrl && <Model imageUrl={imageUrl} />}
                 
         </Suspense>
-        <MovingClouds/>
+        {cloudsGroup}
         <Sky azimuth={0.25} turbidity={5} rayleigh={5} inclination={0.1} distance={4500000} sunPosition={[3, 0, -8]} mieCoefficient={0.003} mieDirectionalG={0.2} />
     </Canvas>
   )
