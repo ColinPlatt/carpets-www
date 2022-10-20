@@ -2,7 +2,7 @@ import { Suspense, useEffect, useState, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { OrbitControls, FlyControls, Sky, Cloud, Html } from "@react-three/drei";
-import { gsap } from 'gsap'
+//import { gsap } from 'gsap'
 
 import { Model } from './Model'
 
@@ -18,59 +18,52 @@ function randEl() {
     return Math.floor(Math.random() * (100 - 10) + 10) / 10;
 }
 
-function CloudsComponent() {
-    let aClouds = new Array(100);
+function createClouds() {
 
-    for (let i = 0; i < aClouds.length; i++) {
+    const clouds = [];
 
-        aClouds[i] = <Cloud
-            position={[randCloud(250), randCloud(250), randCloud(250)]}
-            //width={randBetween(10,1000)}
-            speed={randEl()}
-            segments={randBetween(4,40)}
-            opacity={randEl()}
-        />;
+    for (let i = 0; i<250; i++) {
+        const x = randCloud(250);
+        const y = randCloud(250);
+        const z = randCloud(500);
+        const speed = randEl();
+        const segments = randBetween(4,40);
+        const opacity = randEl();
+
+        clouds[i] = [x,y,z,speed,segments,opacity];
     }
-
-    return aClouds;
-}
-
-function MovingClouds() {
-    
-    const clouds = CloudsComponent();
-
-    console.log(`cloud component ${clouds[0]}`);
-
-        /*
-    useEffect(() => {
-        gsap.to(clouds.position, {
-            x: "-=200",
-            repeat: "-1"
-          });
-        }, []);
-        */
 
     return clouds;
 }
 
+const cloudsGroup = createClouds().map((params, i) =>
+
+    (<Cloud position={[params[0],params[1],params[2]]} speed={params[3]} segments={params[4]} opacity={params[5]} />)
+);
+
+
 export default function FlyingCarpet({imageUrl}) {
   return (
     <Canvas
-    camera={{fov: 50, near: 0.1, far: 500, position: [7.5, 5, 1.5]
+        camera={{fov: 50, near: 0.1, far: 500, position: [7.5, 5, 1.5]
     }}>
     <Suspense fallback={<Html>Loading...</Html>}>
         <OrbitControls
+            maxDistance={25}
         />
         <fog attach="fog" args={['white', 100, 1000]} />
-        <ambientLight intensity={0.5} />
+        <ambientLight color={0xF4ECCF} intensity={0.5} />
         <pointLight intensity={1} position={[0, 0, -1000]} />
         
 
         {imageUrl && <Model imageUrl={imageUrl} />}
-        {/* <Model imageUrl={imageUrl}/> */}
-        <MovingClouds/>
+
+
+        {cloudsGroup}
+            
+        
     </Suspense>
-    <Sky azimuth={0.01} turbidity={5} rayleigh={1} inclination={0.6} distance={10000} />
+    <Sky azimuth={0.25} turbidity={5} rayleigh={5} inclination={0.1} distance={450000} sunPosition={[5, 1, 8]} />
     </Canvas>
   )
 }

@@ -3,6 +3,13 @@ import React, { useRef, useEffect } from "react";
 import { useAnimations, useGLTF, useTexture } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 
+function onClick(event) {
+    event.preventDefault();
+
+    console.log("clicked");
+
+}
+
 export function Model({imageUrl, ...props}) {
   const group = useRef(null);
   const { nodes, materials, animations, scene } = useGLTF(
@@ -20,24 +27,31 @@ export function Model({imageUrl, ...props}) {
     actions.Action?.play();
   }, [mixer]);
 
+
   return (
     <group ref={group} position={[0, 0, 0]} dispose={null}>
       <group name="Scene">
-        <group name="Armature">
-          <primitive object={nodes.Bone} />
-          <skinnedMesh
-            name="Sphere001"
-            geometry={nodes.Sphere001.geometry}
-            material={materials.Tassels}
-            skeleton={nodes.Sphere001.skeleton}
-          />
-          <skinnedMesh
-            name="Carpet"
-            geometry={nodes.Carpet.geometry}
-            material={materials.Carpet}
-            skeleton={nodes.Carpet.skeleton}
-          />
-        </group>
+        <mesh
+            onClick={(e) => console.log('click')}
+            onContextMenu={(e) => console.log('context menu')}
+            onDoubleClick={(e) => console.log('double click')}
+        >
+            <group name="Armature">
+            <primitive object={nodes.Bone} />
+            <skinnedMesh
+                name="Sphere001"
+                geometry={nodes.Sphere001.geometry}
+                material={materials.Tassels}
+                skeleton={nodes.Sphere001.skeleton}
+            />
+            <skinnedMesh
+                name="Carpet"
+                geometry={nodes.Carpet.geometry}
+                material={materials.Carpet}
+                skeleton={nodes.Carpet.skeleton}
+            />
+            </group>
+        </mesh>
       </group>
     </group>
   );
