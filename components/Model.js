@@ -21,7 +21,7 @@ export function Model({imageUrl, ...props}) {
   const { actions, mixer } = useAnimations(animations, group);
 
 
-  console.log(materials.Carpet.map, 'aaaaa')
+  //console.log(materials.Carpet.map, 'aaaaa')
   materials.Carpet.map = texture;
   useEffect(() => {
     actions.Action?.play();
