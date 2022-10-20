@@ -7,9 +7,12 @@ import {
 } from '../hooks/index';
 
 import theme from '../theme';
-import { Text, Container, Grid, Button } from 'theme-ui';
+import { Text, Container, Grid, Button, Box } from 'theme-ui';
 import { useEffect, useState } from 'react';
 import FlyingCarpet from '../components/FlyingCarpet';
+
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 
 const Home = () => {
   const [rugImage, setRugImg] = useState(null);
@@ -38,10 +41,29 @@ const Home = () => {
           <Text>balance: {rugsBalance} { }</Text>
         </Grid> */}
 
-{rugImage &&
 
+{!address && (
+<Box px={2} py={2}  sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1
+}}>
+          <ConnectButton
+            label='Get Rugged'
+            accountStatus='address'
+            chainStatus='none'
+          />
+        </Box>
+
+)}
 <FlyingCarpet imageUrl={rugImage}/>
-}
+
 
 
 

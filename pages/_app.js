@@ -102,13 +102,16 @@ function CarpetApp({ Component, pageProps }) {
                 />
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
               </Head>
-              <Header />
+              {/* <Header /> */}
 
               <Box
                 sx={{
                   width: '100%',
                   flex: '1 1 auto',
                   variant: 'layout.main',
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0
                 }}
               >
 
@@ -116,12 +119,21 @@ function CarpetApp({ Component, pageProps }) {
               </Box>
 
               <Box
+
+              sx={{
+                position: 'absolute',
+                bottom: 0,
+                width: '100%',
+              }}
               >
+
                 <Flex sx={{
                   justifyContent: 'center',
                   py: 3
                 }}>
-                  <Text>
+                  <Text sx={{
+                    color: 'purlyPurple'
+                  }}>
                     A Rug Research collaboration
                   </Text>
                 </Flex>
