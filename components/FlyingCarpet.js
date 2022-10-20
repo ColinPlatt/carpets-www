@@ -51,9 +51,9 @@ export default function FlyingCarpet({imageUrl}) {
         <OrbitControls
             maxDistance={25}
         />
-        <fog attach="fog" args={['white', 100, 1000]} />
+        <fog attach="fog" args={['orange', 100, 1000]} />
         <ambientLight color={0xF4ECCF} intensity={0.5} />
-        <pointLight intensity={1} position={[0, 0, -1000]} />
+        <pointLight intensity={0.1} position={[3, 0, -1000]} />
         
 
         {imageUrl && <Model imageUrl={imageUrl} />}
@@ -63,7 +63,7 @@ export default function FlyingCarpet({imageUrl}) {
             
         
     </Suspense>
-    <Sky azimuth={0.25} turbidity={5} rayleigh={5} inclination={0.1} distance={450000} sunPosition={[5, 1, 8]} />
+    <Sky azimuth={0.25} turbidity={5} rayleigh={5} inclination={0.1} distance={450000} sunPosition={[3, 0.125, 8]} mieCoefficient={0.003} mieDirectionalG={0.2} />
     </Canvas>
   )
 }
