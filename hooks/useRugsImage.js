@@ -40,9 +40,6 @@ export const useRugsImage = async (connectedAccount) => {
             selected_id = response.data.result[0].token_id;
         }
 
-
-        console.log(selected_id);
-
         const optionsLooksRare = {
             method: 'GET',
             url: `https://api.looksrare.org/api/v1/tokens?collection=${RUGS_NFT_MAINNET}&tokenId=${selected_id}`,
@@ -60,8 +57,6 @@ export const useRugsImage = async (connectedAccount) => {
         lookResults = lrResponse.data.data
         imageURI = lrResponse.data.data.imageURI;
 
-        console.log(lookResults);
-        console.log(imageURI);
         return imageURI;
     } else {
         return '0'; //there is no token ID 0

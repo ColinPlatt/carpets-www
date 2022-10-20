@@ -24,8 +24,6 @@ import Head from 'next/head';
 
 function CarpetApp({ Component, pageProps }) {
 
-  console.log(`trying env ${process.env.MORALIS_API_KEY}`);
-
   const { chains, provider, webSocketProvider } = configureChains(
     [
       chain.mainnet,
