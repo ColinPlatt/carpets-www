@@ -1,7 +1,8 @@
-import { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
+import { Suspense, useEffect, useState, useRef } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { OrbitControls, FlyControls, Sky, Cloud, Html } from "@react-three/drei";
+import { gsap } from 'gsap'
 
 import { Model } from './Model'
 
@@ -23,7 +24,7 @@ function CloudsComponent() {
     for (let i = 0; i < aClouds.length; i++) {
 
         aClouds[i] = <Cloud
-            position={[randCloud(100), randCloud(100), randCloud(100)]}
+            position={[randCloud(250), randCloud(250), randCloud(250)]}
             //width={randBetween(10,1000)}
             speed={randEl()}
             segments={randBetween(4,40)}
@@ -34,22 +35,42 @@ function CloudsComponent() {
     return aClouds;
 }
 
+function MovingClouds() {
+    
+    const clouds = CloudsComponent();
+
+    console.log(`cloud component ${clouds[0]}`);
+
+        /*
+    useEffect(() => {
+        gsap.to(clouds.position, {
+            x: "-=200",
+            repeat: "-1"
+          });
+        }, []);
+        */
+
+    return clouds;
+}
+
 export default function FlyingCarpet({imageUrl}) {
   return (
     <Canvas
-    camera={{fov: 50, near: 0.1, far: 1000, position: [7.5, 5, 1.5]
+    camera={{fov: 50, near: 0.1, far: 500, position: [7.5, 5, 1.5]
     }}>
     <Suspense fallback={<Html>Loading...</Html>}>
         <OrbitControls
         />
+        <fog attach="fog" args={['white', 100, 1000]} />
         <ambientLight intensity={0.5} />
         <pointLight intensity={1} position={[0, 0, -1000]} />
+        
 
         {imageUrl && <Model imageUrl={imageUrl} />}
         {/* <Model imageUrl={imageUrl}/> */}
-        <CloudsComponent/>
+        <MovingClouds/>
     </Suspense>
-    <Sky azimuth={0.01} turbidity={5} rayleigh={0.1} inclination={0.6} distance={1000} />
+    <Sky azimuth={0.01} turbidity={5} rayleigh={1} inclination={0.6} distance={10000} />
     </Canvas>
   )
 }
