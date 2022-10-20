@@ -29,7 +29,7 @@ export function Model({imageUrl, ...props}) {
 
 
   return (
-    <group ref={group} position={[0, 0, 0]} rotation={[0,90,0]} dispose={null}>
+    <group ref={group} position={[0, 0, 0]} rotation={[0,-2,0]} dispose={null}>
       <group name="Scene">
         <mesh
             onContextMenu={(e) => console.log('context menu')}

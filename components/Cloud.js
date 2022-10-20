@@ -29,7 +29,7 @@ function Cloud({
     var _group$current;
 
     return (_group$current = group.current) == null ? void 0 : _group$current.children.forEach((cloud, index) => {
-      cloud.children[0].position.x += 0.1;
+      cloud.children[0].position.x > 500 ? cloud.children[0].position.x=-500 : cloud.children[0].position.x += 1;
       cloud.children[0].rotation.z += clouds[index].rotation;
       cloud.children[0].scale.setScalar(clouds[index].scale + (1 + Math.sin(state.clock.getElapsedTime() / 10)) / 2 * index / 10);
     });
