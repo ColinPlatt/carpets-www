@@ -38,7 +38,7 @@ function createClouds() {
 
 const cloudsGroup = createClouds().map((params, i) =>
 
-    (<Cloud position={[params[0],params[1],params[2]]} speed={params[3]} segments={params[4]} opacity={params[5]} />)
+    (<Cloud key={i} position={[params[0],params[1],params[2]]} speed={params[3]} segments={params[4]} opacity={params[5]} />)
 );
 
 
