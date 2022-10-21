@@ -21,7 +21,7 @@ function Cloud({
   const clouds = React.useMemo(() => [...new Array(segments)].map((_, index) => ({
     x: width / 2 - Math.random() * width,
     y: width / 2 - Math.random() * width,
-    scale: 0.4 + Math.sin((index + 1) / segments * Math.PI) * ((0.2 + Math.random()) * 10),
+    scale: 0.4 + Math.sin((index + 1) / segments * Math.PI) * ((0.2 + Math.random()) * 40),
     density: Math.max(0.2, Math.random()),
     rotation: Math.max(0.002, 0.005 * Math.random()) * speed
   })), [width, segments, speed]);
@@ -29,7 +29,7 @@ function Cloud({
     var _group$current;
 
     return (_group$current = group.current) == null ? void 0 : _group$current.children.forEach((cloud, index) => {
-      cloud.children[0].position.x > 500 ? cloud.children[0].position.x=-500 : cloud.children[0].position.x += 1;
+      cloud.children[0].position.x < -1000 ? cloud.children[0].position.x+=2000 : cloud.children[0].position.x -= 10;
       cloud.children[0].rotation.z += clouds[index].rotation;
       cloud.children[0].scale.setScalar(clouds[index].scale + (1 + Math.sin(state.clock.getElapsedTime() / 10)) / 2 * index / 10);
     });

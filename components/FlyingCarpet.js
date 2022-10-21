@@ -25,11 +25,11 @@ function createClouds() {
     const clouds = [];
 
     for (let i = 0; i<250; i++) {
-        const x = randCloud(250);
-        const y = randCloud(250);
+        const x = randCloud(1000);
+        const y = randCloud(500);
         const z = randCloud(500);
         const speed = randEl();
-        const segments = randBetween(4,40);
+        const segments = randBetween(10,50);
         const opacity = randEl();
 
         clouds[i] = [x,y,z,speed,segments,opacity];
@@ -66,10 +66,10 @@ export default function FlyingCarpet({imageUrl}) {
     }}
     >
         <Suspense fallback={<Html>Loading...</Html>}>
-            <OrbitControls
-                maxDistance={25}
+            <FlyControls
+                
             />
-            <fog attach="fog" args={['orange', 100, 1000]} />
+            <fog attach="fog" args={['gray', 100, 1000]} />
             <ambientLight color={0xF4ECCF} intensity={0.5} />
             <pointLight intensity={0.1} position={[3, 0, -1000]} />
             
