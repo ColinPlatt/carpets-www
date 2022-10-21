@@ -102,6 +102,7 @@ function CarpetApp({ Component, pageProps }) {
               </Head>
               {/* <Header /> */}
 
+
               <Box
                 sx={{
                   width: '100%',
@@ -112,8 +113,8 @@ function CarpetApp({ Component, pageProps }) {
                   bottom: 0
                 }}
               >
-
                 <Component {...pageProps} />
+                
               </Box>
 
               <Box
@@ -124,7 +125,17 @@ function CarpetApp({ Component, pageProps }) {
                 width: '100%',
               }}
               >
-
+                <Flex sx={{
+                  justifyContent: 'center',
+                  py: 0
+                }}>
+                  <Text sx={{
+                    color: 'purlyPurple'
+                  }}>
+                    Keyboard: WASD move, R|F up | down - Mouse: zoom
+                  </Text>
+                  
+                </Flex>
                 <Flex sx={{
                   justifyContent: 'center',
                   py: 3
@@ -134,6 +145,7 @@ function CarpetApp({ Component, pageProps }) {
                   }}>
                     A Rug Research collaboration
                   </Text>
+                  
                 </Flex>
               </Box>
             </Box>
