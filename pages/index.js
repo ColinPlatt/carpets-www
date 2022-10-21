@@ -34,16 +34,9 @@ const Home = () => {
 
   return (
 
-      <Container sx={{
-      }}>
-        {/* <Grid>
-          <Text>test stuff here: { }</Text>
-          <Text>balance: {rugsBalance} { }</Text>
-        </Grid> */}
-
-
-{!address && (
-<Box px={2} py={2}  sx={{
+    <Container>
+      {!address && (
+        <Box px={2} py={2}  sx={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -53,21 +46,16 @@ const Home = () => {
           left: 0,
           right: 0,
           zIndex: 1
-}}>
+        }}>
           <ConnectButton
             label='Get Rugged'
             accountStatus='address'
             chainStatus='none'
           />
         </Box>
-
-)}
-<FlyingCarpet imageUrl={rugImage}/>
-
-
-
-
-      </Container>
+      )}
+      <FlyingCarpet imageUrl={rugImage}/>
+    </Container>
   )
 };
 
